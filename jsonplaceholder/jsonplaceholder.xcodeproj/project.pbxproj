@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		76D8126629366B660018C836 /* jsonplaceholder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76D8126429366B660018C836 /* jsonplaceholder.xcdatamodeld */; };
 		76D8126829366B680018C836 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D8126729366B680018C836 /* Assets.xcassets */; };
 		76D8126B29366B680018C836 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D8126929366B680018C836 /* LaunchScreen.storyboard */; };
 		76D8127629366B680018C836 /* jsonplaceholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8127529366B680018C836 /* jsonplaceholderTests.swift */; };
@@ -15,6 +14,21 @@
 		76D8128229366B680018C836 /* jsonplaceholderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8128129366B680018C836 /* jsonplaceholderUITestsLaunchTests.swift */; };
 		76D812962937A75A0018C836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812942937A75A0018C836 /* AppDelegate.swift */; };
 		76D812972937A75A0018C836 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812952937A75A0018C836 /* SceneDelegate.swift */; };
+		76D8129C2937A7F70018C836 /* JSONPlaceholderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8129B2937A7F70018C836 /* JSONPlaceholderService.swift */; };
+		76D812A22937A8630018C836 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D812A12937A8630018C836 /* Home.storyboard */; };
+		76D812A42937A8D50018C836 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812A32937A8D50018C836 /* HomeViewController.swift */; };
+		76D812A62937A90D0018C836 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812A52937A90D0018C836 /* HomeViewModel.swift */; };
+		76D812AC2937A9CD0018C836 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812AB2937A9CD0018C836 /* PostDetailsViewController.swift */; };
+		76D812AE2937A9DD0018C836 /* PostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812AD2937A9DD0018C836 /* PostDetailsViewModel.swift */; };
+		76D812B02937A9E90018C836 /* PostDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D812AF2937A9E90018C836 /* PostDetails.storyboard */; };
+		76D812BB2937AB0E0018C836 /* PostTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812BA2937AB0E0018C836 /* PostTableViewCellViewModel.swift */; };
+		76D812BE2937AB270018C836 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812BC2937AB270018C836 /* PostTableViewCell.swift */; };
+		76D812BF2937AB270018C836 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76D812BD2937AB270018C836 /* PostTableViewCell.xib */; };
+		76D812C12937AB410018C836 /* PostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812C02937AB410018C836 /* PostDetailsViewModel.swift */; };
+		76D812C42937AB4C0018C836 /* PostDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812C22937AB4C0018C836 /* PostDetailsTableViewCell.swift */; };
+		76D812C52937AB4C0018C836 /* PostDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76D812C32937AB4C0018C836 /* PostDetailsTableViewCell.xib */; };
+		76D812C92937ABCD0018C836 /* jsonplaceholder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76D812C72937ABCD0018C836 /* jsonplaceholder.xcdatamodeld */; };
+		76D812CD2937AC050018C836 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812CC2937AC050018C836 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +50,6 @@
 
 /* Begin PBXFileReference section */
 		76D8125829366B660018C836 /* jsonplaceholder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jsonplaceholder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		76D8126529366B660018C836 /* jsonplaceholder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = jsonplaceholder.xcdatamodel; sourceTree = "<group>"; };
 		76D8126729366B680018C836 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76D8126A29366B680018C836 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76D8126C29366B680018C836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +60,21 @@
 		76D8128129366B680018C836 /* jsonplaceholderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonplaceholderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		76D812942937A75A0018C836 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76D812952937A75A0018C836 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		76D8129B2937A7F70018C836 /* JSONPlaceholderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPlaceholderService.swift; sourceTree = "<group>"; };
+		76D812A12937A8630018C836 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		76D812A32937A8D50018C836 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		76D812A52937A90D0018C836 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		76D812AB2937A9CD0018C836 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
+		76D812AD2937A9DD0018C836 /* PostDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewModel.swift; sourceTree = "<group>"; };
+		76D812AF2937A9E90018C836 /* PostDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostDetails.storyboard; sourceTree = "<group>"; };
+		76D812BA2937AB0E0018C836 /* PostTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		76D812BC2937AB270018C836 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		76D812BD2937AB270018C836 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		76D812C02937AB410018C836 /* PostDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewModel.swift; sourceTree = "<group>"; };
+		76D812C22937AB4C0018C836 /* PostDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		76D812C32937AB4C0018C836 /* PostDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		76D812C82937ABCD0018C836 /* jsonplaceholder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = jsonplaceholder.xcdatamodel; sourceTree = "<group>"; };
+		76D812CC2937AC050018C836 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +153,7 @@
 		76D8128E2937A75A0018C836 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				76D812992937A7E50018C836 /* Services */,
 				76D8128F2937A75A0018C836 /* Data */,
 			);
 			path = Shared;
@@ -133,7 +162,9 @@
 		76D8128F2937A75A0018C836 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				76D8126429366B660018C836 /* jsonplaceholder.xcdatamodeld */,
+				76D812CB2937ABEF0018C836 /* CoreDataModels */,
+				76D812CA2937ABEF0018C836 /* Manager */,
+				76D812C62937ABCD0018C836 /* Model */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -159,6 +190,9 @@
 			isa = PBXGroup;
 			children = (
 				76D812932937A75A0018C836 /* AppDelegate */,
+				76D8129D2937A8510018C836 /* Home */,
+				76D812A72937A9B10018C836 /* PostDetails */,
+				76D812B12937AADF0018C836 /* TableViewCells */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -178,6 +212,190 @@
 				76D8126929366B680018C836 /* LaunchScreen.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		76D812992937A7E50018C836 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				76D8129A2937A7E50018C836 /* JSONPlaceholderService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		76D8129A2937A7E50018C836 /* JSONPlaceholderService */ = {
+			isa = PBXGroup;
+			children = (
+				76D8129B2937A7F70018C836 /* JSONPlaceholderService.swift */,
+			);
+			path = JSONPlaceholderService;
+			sourceTree = "<group>";
+		};
+		76D8129D2937A8510018C836 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				76D812A02937A8510018C836 /* Controllers */,
+				76D8129E2937A8510018C836 /* Models */,
+				76D8129F2937A8510018C836 /* UserInterface */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		76D8129E2937A8510018C836 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				76D812A52937A90D0018C836 /* HomeViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		76D8129F2937A8510018C836 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				76D812A12937A8630018C836 /* Home.storyboard */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		76D812A02937A8510018C836 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				76D812A32937A8D50018C836 /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		76D812A72937A9B10018C836 /* PostDetails */ = {
+			isa = PBXGroup;
+			children = (
+				76D812AA2937A9B10018C836 /* Controllers */,
+				76D812A82937A9B10018C836 /* Models */,
+				76D812A92937A9B10018C836 /* UserInterface */,
+			);
+			path = PostDetails;
+			sourceTree = "<group>";
+		};
+		76D812A82937A9B10018C836 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				76D812AD2937A9DD0018C836 /* PostDetailsViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		76D812A92937A9B10018C836 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				76D812AF2937A9E90018C836 /* PostDetails.storyboard */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		76D812AA2937A9B10018C836 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				76D812AB2937A9CD0018C836 /* PostDetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		76D812B12937AADF0018C836 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				76D812B62937AADF0018C836 /* PostTableViewCell */,
+				76D812B22937AADF0018C836 /* PostDetailsTableViewCell */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		76D812B22937AADF0018C836 /* PostDetailsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				76D812B32937AADF0018C836 /* Model */,
+				76D812B42937AADF0018C836 /* Class */,
+				76D812B52937AADF0018C836 /* UserInterface */,
+			);
+			path = PostDetailsTableViewCell;
+			sourceTree = "<group>";
+		};
+		76D812B32937AADF0018C836 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				76D812C02937AB410018C836 /* PostDetailsViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		76D812B42937AADF0018C836 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				76D812C22937AB4C0018C836 /* PostDetailsTableViewCell.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		76D812B52937AADF0018C836 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				76D812C32937AB4C0018C836 /* PostDetailsTableViewCell.xib */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		76D812B62937AADF0018C836 /* PostTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				76D812B72937AADF0018C836 /* Model */,
+				76D812B82937AADF0018C836 /* Class */,
+				76D812B92937AADF0018C836 /* UserInterface */,
+			);
+			path = PostTableViewCell;
+			sourceTree = "<group>";
+		};
+		76D812B72937AADF0018C836 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				76D812BA2937AB0E0018C836 /* PostTableViewCellViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		76D812B82937AADF0018C836 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				76D812BC2937AB270018C836 /* PostTableViewCell.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		76D812B92937AADF0018C836 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				76D812BD2937AB270018C836 /* PostTableViewCell.xib */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		76D812C62937ABCD0018C836 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				76D812C72937ABCD0018C836 /* jsonplaceholder.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		76D812CA2937ABEF0018C836 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				76D812CC2937AC050018C836 /* CoreDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		76D812CB2937ABEF0018C836 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreDataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +502,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76D812A22937A8630018C836 /* Home.storyboard in Resources */,
+				76D812BF2937AB270018C836 /* PostTableViewCell.xib in Resources */,
+				76D812B02937A9E90018C836 /* PostDetails.storyboard in Resources */,
 				76D8126B29366B680018C836 /* LaunchScreen.storyboard in Resources */,
+				76D812C52937AB4C0018C836 /* PostDetailsTableViewCell.xib in Resources */,
 				76D8126829366B680018C836 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,8 +532,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76D812C42937AB4C0018C836 /* PostDetailsTableViewCell.swift in Sources */,
+				76D812C12937AB410018C836 /* PostDetailsViewModel.swift in Sources */,
+				76D812C92937ABCD0018C836 /* jsonplaceholder.xcdatamodeld in Sources */,
+				76D812A42937A8D50018C836 /* HomeViewController.swift in Sources */,
+				76D812A62937A90D0018C836 /* HomeViewModel.swift in Sources */,
+				76D812AC2937A9CD0018C836 /* PostDetailsViewController.swift in Sources */,
 				76D812962937A75A0018C836 /* AppDelegate.swift in Sources */,
-				76D8126629366B660018C836 /* jsonplaceholder.xcdatamodeld in Sources */,
+				76D812CD2937AC050018C836 /* CoreDataManager.swift in Sources */,
+				76D8129C2937A7F70018C836 /* JSONPlaceholderService.swift in Sources */,
+				76D812AE2937A9DD0018C836 /* PostDetailsViewModel.swift in Sources */,
+				76D812BE2937AB270018C836 /* PostTableViewCell.swift in Sources */,
+				76D812BB2937AB0E0018C836 /* PostTableViewCellViewModel.swift in Sources */,
 				76D812972937A75A0018C836 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,12 +882,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		76D8126429366B660018C836 /* jsonplaceholder.xcdatamodeld */ = {
+		76D812C72937ABCD0018C836 /* jsonplaceholder.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				76D8126529366B660018C836 /* jsonplaceholder.xcdatamodel */,
+				76D812C82937ABCD0018C836 /* jsonplaceholder.xcdatamodel */,
 			);
-			currentVersion = 76D8126529366B660018C836 /* jsonplaceholder.xcdatamodel */;
+			currentVersion = 76D812C82937ABCD0018C836 /* jsonplaceholder.xcdatamodel */;
 			path = jsonplaceholder.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
