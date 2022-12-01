@@ -29,6 +29,7 @@
 		76D812C52937AB4C0018C836 /* PostDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76D812C32937AB4C0018C836 /* PostDetailsTableViewCell.xib */; };
 		76D812C92937ABCD0018C836 /* jsonplaceholder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76D812C72937ABCD0018C836 /* jsonplaceholder.xcdatamodeld */; };
 		76D812CD2937AC050018C836 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812CC2937AC050018C836 /* CoreDataManager.swift */; };
+		76D812CF2937B0EE0018C836 /* HomeViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812CE2937B0EE0018C836 /* HomeViewController+TableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		76D812C32937AB4C0018C836 /* PostDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		76D812C82937ABCD0018C836 /* jsonplaceholder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = jsonplaceholder.xcdatamodel; sourceTree = "<group>"; };
 		76D812CC2937AC050018C836 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		76D812CE2937B0EE0018C836 /* HomeViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+TableView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				76D812A32937A8D50018C836 /* HomeViewController.swift */,
+				76D812CE2937B0EE0018C836 /* HomeViewController+TableView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				76D812A62937A90D0018C836 /* HomeViewModel.swift in Sources */,
 				76D812AC2937A9CD0018C836 /* PostDetailsViewController.swift in Sources */,
 				76D812962937A75A0018C836 /* AppDelegate.swift in Sources */,
+				76D812CF2937B0EE0018C836 /* HomeViewController+TableView.swift in Sources */,
 				76D812CD2937AC050018C836 /* CoreDataManager.swift in Sources */,
 				76D8129C2937A7F70018C836 /* JSONPlaceholderService.swift in Sources */,
 				76D812AE2937A9DD0018C836 /* PostDetailsViewModel.swift in Sources */,
