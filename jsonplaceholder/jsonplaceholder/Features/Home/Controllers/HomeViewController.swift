@@ -12,4 +12,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
+    private func setup() {
+        // setup the pull to refresh logic
+
+        // setup the swipe to favorite
+
+        // setup the swipe to delete
+    }
 }

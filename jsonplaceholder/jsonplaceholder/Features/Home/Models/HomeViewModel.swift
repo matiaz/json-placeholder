@@ -28,12 +28,12 @@ class HomeViewModel: NSObject {
     }
 
     // sets the favorite post property to true or false
-    func set(post: String, isFavorite: Bool) async -> Bool {
+    func set(postId: String, favorite: Bool) async -> Bool {
         return true
     }
 
     // deletes a post from the local storage
-    func delete(post: String) async -> Bool {
+    func delete(postId: String) async -> Bool {
         return true
     }
 }

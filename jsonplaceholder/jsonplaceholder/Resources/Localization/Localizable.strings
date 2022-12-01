@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  jsonplaceholder
+
+  Created by dmatiaz on 30/11/22.
+  
+*/
+
+"Json Placeholder" = "Json Placeholder";
+"Ok" = "Ok";
+"Are you sure you want to delete this post?" = "Are you sure you want to delete this post?";
+"Yes" = "Yes";
+"Cancel" = "Cancel";
+"Are you sure you want to un favorite this post?" = "Are you sure you want to un favorite this post?";

@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+class PostDetailsViewModel: NSObject {
+
+    // custom init in case we need it
+    override init() { super.init() }
+
+}
