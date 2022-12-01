@@ -30,6 +30,9 @@
 		76D812C92937ABCD0018C836 /* jsonplaceholder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76D812C72937ABCD0018C836 /* jsonplaceholder.xcdatamodeld */; };
 		76D812CD2937AC050018C836 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812CC2937AC050018C836 /* CoreDataManager.swift */; };
 		76D812CF2937B0EE0018C836 /* HomeViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812CE2937B0EE0018C836 /* HomeViewController+TableView.swift */; };
+		76D812D229384AB10018C836 /* Network+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812D129384AB10018C836 /* Network+Constants.swift */; };
+		76D812D5293850000018C836 /* SMPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812D4293850000018C836 /* SMPost.swift */; };
+		76D812D72938571D0018C836 /* SMComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812D62938571D0018C836 /* SMComment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		76D812C82937ABCD0018C836 /* jsonplaceholder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = jsonplaceholder.xcdatamodel; sourceTree = "<group>"; };
 		76D812CC2937AC050018C836 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		76D812CE2937B0EE0018C836 /* HomeViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+TableView.swift"; sourceTree = "<group>"; };
+		76D812D129384AB10018C836 /* Network+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Constants.swift"; sourceTree = "<group>"; };
+		76D812D4293850000018C836 /* SMPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMPost.swift; sourceTree = "<group>"; };
+		76D812D62938571D0018C836 /* SMComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMComment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,8 @@
 		76D8128E2937A75A0018C836 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				76D812D329384FD20018C836 /* Models */,
+				76D812D029384A5E0018C836 /* Constants */,
 				76D812992937A7E50018C836 /* Services */,
 				76D8128F2937A75A0018C836 /* Data */,
 			);
@@ -401,6 +409,23 @@
 			path = CoreDataModels;
 			sourceTree = "<group>";
 		};
+		76D812D029384A5E0018C836 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				76D812D129384AB10018C836 /* Network+Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		76D812D329384FD20018C836 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				76D812D4293850000018C836 /* SMPost.swift */,
+				76D812D62938571D0018C836 /* SMComment.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -535,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76D812D72938571D0018C836 /* SMComment.swift in Sources */,
 				76D812C42937AB4C0018C836 /* PostDetailsTableViewCell.swift in Sources */,
 				76D812C12937AB410018C836 /* PostDetailsViewModel.swift in Sources */,
 				76D812C92937ABCD0018C836 /* jsonplaceholder.xcdatamodeld in Sources */,
@@ -542,11 +568,13 @@
 				76D812A62937A90D0018C836 /* HomeViewModel.swift in Sources */,
 				76D812AC2937A9CD0018C836 /* PostDetailsViewController.swift in Sources */,
 				76D812962937A75A0018C836 /* AppDelegate.swift in Sources */,
+				76D812D229384AB10018C836 /* Network+Constants.swift in Sources */,
 				76D812CF2937B0EE0018C836 /* HomeViewController+TableView.swift in Sources */,
 				76D812CD2937AC050018C836 /* CoreDataManager.swift in Sources */,
 				76D8129C2937A7F70018C836 /* JSONPlaceholderService.swift in Sources */,
 				76D812AE2937A9DD0018C836 /* PostDetailsViewModel.swift in Sources */,
 				76D812BE2937AB270018C836 /* PostTableViewCell.swift in Sources */,
+				76D812D5293850000018C836 /* SMPost.swift in Sources */,
 				76D812BB2937AB0E0018C836 /* PostTableViewCellViewModel.swift in Sources */,
 				76D812972937A75A0018C836 /* SceneDelegate.swift in Sources */,
 			);
