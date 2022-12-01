@@ -19,7 +19,6 @@
 		76D812A42937A8D50018C836 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812A32937A8D50018C836 /* HomeViewController.swift */; };
 		76D812A62937A90D0018C836 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812A52937A90D0018C836 /* HomeViewModel.swift */; };
 		76D812AC2937A9CD0018C836 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812AB2937A9CD0018C836 /* PostDetailsViewController.swift */; };
-		76D812AE2937A9DD0018C836 /* PostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812AD2937A9DD0018C836 /* PostDetailsViewModel.swift */; };
 		76D812B02937A9E90018C836 /* PostDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D812AF2937A9E90018C836 /* PostDetails.storyboard */; };
 		76D812BB2937AB0E0018C836 /* PostTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812BA2937AB0E0018C836 /* PostTableViewCellViewModel.swift */; };
 		76D812BE2937AB270018C836 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D812BC2937AB270018C836 /* PostTableViewCell.swift */; };
@@ -71,7 +70,6 @@
 		76D812A32937A8D50018C836 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		76D812A52937A90D0018C836 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		76D812AB2937A9CD0018C836 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
-		76D812AD2937A9DD0018C836 /* PostDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewModel.swift; sourceTree = "<group>"; };
 		76D812AF2937A9E90018C836 /* PostDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostDetails.storyboard; sourceTree = "<group>"; };
 		76D812BA2937AB0E0018C836 /* PostTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		76D812BC2937AB270018C836 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -294,7 +292,6 @@
 		76D812A82937A9B10018C836 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				76D812AD2937A9DD0018C836 /* PostDetailsViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -596,7 +593,6 @@
 				76D812DD2938621D0018C836 /* String+Extension.swift in Sources */,
 				76D812CD2937AC050018C836 /* CoreDataManager.swift in Sources */,
 				76D8129C2937A7F70018C836 /* JSONPlaceholderService.swift in Sources */,
-				76D812AE2937A9DD0018C836 /* PostDetailsViewModel.swift in Sources */,
 				76D812BE2937AB270018C836 /* PostTableViewCell.swift in Sources */,
 				76D812D5293850000018C836 /* SMPost.swift in Sources */,
 				76D812BB2937AB0E0018C836 /* PostTableViewCellViewModel.swift in Sources */,

@@ -9,6 +9,8 @@ import Foundation
 
 class HomeViewModel: NSObject {
 
+    var posts: [SMPost] = []
+
     // custom init in case we need it
     override init() { super.init() }
 
@@ -27,13 +29,17 @@ class HomeViewModel: NSObject {
         return []
     }
 
+    func set(postId: Int, favorite: Bool, completion: @escaping (Bool) -> Void) {
+        completion(true)
+    }
+
     // sets the favorite post property to true or false
-    func set(postId: String, favorite: Bool) async -> Bool {
+    func set(postId: Int, favorite: Bool) async -> Bool {
         return true
     }
 
     // deletes a post from the local storage
-    func delete(postId: String) async -> Bool {
-        return true
+    func delete(postId: Int, completion: @escaping (Bool) -> Void) {
+        completion(true)
     }
 }
