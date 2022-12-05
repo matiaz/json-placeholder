@@ -9,11 +9,11 @@ import Foundation
 
 // the service model object for the posts
 struct SMPost: Codable {
-    var userID, id: Int?
+    var userId, postId: Int?
     var title, body: String?
 
     enum CodingKeys: String, CodingKey {
-        case userID = "userId"
-        case id, title, body
+        case postId = "id"
+        case title, body, userId
     }
 }

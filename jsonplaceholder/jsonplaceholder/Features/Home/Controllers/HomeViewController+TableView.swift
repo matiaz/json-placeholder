@@ -15,7 +15,6 @@ extension HomeViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let favoriteAction = UIContextualAction(style: .normal, title: "Favourite".localized) { [weak self] (action, view, completion) in
-            let currentPost = self?.dataProvider.fetchedResultsController.object(at: indexPath)
             if let sections = self?.dataProvider.fetchedResultsController.sections,
                let rows = sections[indexPath.section].objects,
                 let currentPost = rows[indexPath.row] as? CMPost {
@@ -33,7 +32,6 @@ extension HomeViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .normal, title: "Delete".localized) { [weak self] (action, view, completion) in
-            let currentPost = self?.dataProvider.fetchedResultsController.object(at: indexPath)
             if let sections = self?.dataProvider.fetchedResultsController.sections,
                let rows = sections[indexPath.section].objects,
                 let currentPost = rows[indexPath.row] as? CMPost {

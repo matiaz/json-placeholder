@@ -8,11 +8,10 @@
 import Foundation
 
 struct SMComment: Codable {
-    var postID, id: Int?
+    var postId, id: Int?
     var name, email, body: String?
 
     enum CodingKeys: String, CodingKey {
-        case postID = "postId"
-        case id, name, email, body
+        case id, name, email, body, postId
     }
 }
