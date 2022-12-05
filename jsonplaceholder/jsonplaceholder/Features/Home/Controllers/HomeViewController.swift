@@ -10,11 +10,16 @@ import UIKit
 class HomeViewController: UIViewController {
 
     // user interface
-    @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var postTableView: UITableView!
     private var refreshControl: UIRefreshControl!
 
     // properties
     internal var viewModel: HomeViewModel?
+    lazy var dataProvider: PostDataProvider = {
+        let managedContext = CoreDataManager.shared.managedContext
+        let provider = PostDataProvider(with: managedContext, fetchedResultsControllerDelegate: self)
+        return provider
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,25 +30,20 @@ class HomeViewController: UIViewController {
         // init the view model
         viewModel = HomeViewModel()
 
-
-        // setup the pull to refresh logic
-
-        // setup the swipe to favorite
-
-        // setup the swipe to delete
-
+        // setup tableview
         setupTableView()
+
+        // load data from local storage
         loadData()
     }
 
     private func setupTableView() {
-        tableview.rowHeight = UITableView.automaticDimension
-        tableview.estimatedRowHeight = 45
-
+        postTableView.rowHeight = UITableView.automaticDimension
+        postTableView.estimatedRowHeight = 45
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh posts".localized)
         refreshControl.addTarget(self, action: #selector(updatePosts), for: .valueChanged)
-        tableview.addSubview(refreshControl)
+        postTableView.addSubview(refreshControl)
     }
 
     @objc private func updatePosts(_ sender: AnyObject) async {
@@ -55,6 +55,6 @@ class HomeViewController: UIViewController {
     }
 
     private func loadData() {
-
+        
     }
 }

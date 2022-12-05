@@ -9,6 +9,8 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
 
+    static var identifier: String { return String(describing: self) }
+
     // user interface
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var postFavoriteImageView: UIImageView!
@@ -19,6 +21,7 @@ class PostTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setup()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,6 +29,7 @@ class PostTableViewCell: UITableViewCell {
     }
 
     private func setup() {
+        accessoryType = .disclosureIndicator
         postTitleLabel.text = viewModel?.currentPost?.title
         postFavoriteImageView.isHidden = true
     }

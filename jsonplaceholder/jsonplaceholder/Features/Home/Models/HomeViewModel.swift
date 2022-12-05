@@ -9,8 +9,6 @@ import Foundation
 
 class HomeViewModel: NSObject {
 
-    var posts: [SMPost] = []
-
     // custom init in case we need it
     override init() { super.init() }
 
@@ -25,12 +23,15 @@ class HomeViewModel: NSObject {
     }
 
     // gets the list of posts stored locally
-    func getPosts() async -> [String] {
-        return []
+    func getPosts() async -> Bool {
+        return true
     }
 
-    func set(postId: Int, favorite: Bool, completion: @escaping (Bool) -> Void) {
-        completion(true)
+    func set(post: CMPost, favorite: Bool, completion: @escaping (Bool) -> Void) {
+        Task {
+            let result = await CoreDataManager.shared.set(post: post, favorite: favorite)
+            completion(result)
+        }
     }
 
     // sets the favorite post property to true or false
@@ -39,7 +40,7 @@ class HomeViewModel: NSObject {
     }
 
     // deletes a post from the local storage
-    func delete(postId: Int, completion: @escaping (Bool) -> Void) {
+    func delete(post: CMPost, completion: @escaping (Bool) -> Void) {
         completion(true)
     }
 }

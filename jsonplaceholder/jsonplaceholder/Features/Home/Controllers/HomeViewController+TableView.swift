@@ -14,14 +14,16 @@ extension HomeViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let favoriteAction = UIContextualAction(style: .normal,
-                                                title: "Favourite".localized) { [weak self] (action, view, completion) in
-            if let currentPost = self?.viewModel?.posts[indexPath.row], let postId = currentPost.id {
-                self?.viewModel?.set(postId: postId, favorite: true, completion: { result in
-                    completion(result)
+        let favoriteAction = UIContextualAction(style: .normal, title: "Favourite".localized) { [weak self] (action, view, completion) in
+            let currentPost = self?.dataProvider.fetchedResultsController.object(at: indexPath)
+            if let sections = self?.dataProvider.fetchedResultsController.sections,
+               let rows = sections[indexPath.section].objects,
+                let currentPost = rows[indexPath.row] as? CMPost {
+                self?.viewModel?.set(post: currentPost, favorite: !currentPost.favorite, completion: { result in
+                    // update the UI here
+                    self?.postTableView.beginUpdates()
+                    self?.postTableView.endUpdates()
                 })
-            } else {
-                completion(false)
             }
         }
         favoriteAction.backgroundColor = UIColor.systemYellow
@@ -30,14 +32,16 @@ extension HomeViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .normal,
-                                                title: "Delete".localized) { [weak self] (action, view, completion) in
-            if let currentPost = self?.viewModel?.posts[indexPath.row], let postId = currentPost.id {
-                self?.viewModel?.delete(postId: postId, completion: { result in
-                    completion(result)
+        let deleteAction = UIContextualAction(style: .normal, title: "Delete".localized) { [weak self] (action, view, completion) in
+            let currentPost = self?.dataProvider.fetchedResultsController.object(at: indexPath)
+            if let sections = self?.dataProvider.fetchedResultsController.sections,
+               let rows = sections[indexPath.section].objects,
+                let currentPost = rows[indexPath.row] as? CMPost {
+                self?.viewModel?.delete(post: currentPost, completion: { result in
+                    // update the UI here
+                    self?.postTableView.beginUpdates()
+                    self?.postTableView.endUpdates()
                 })
-            } else {
-                completion(false)
             }
         }
         deleteAction.backgroundColor = UIColor.systemRed
@@ -49,11 +53,15 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return dataProvider.fetchedResultsController.sections?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        if let sections = dataProvider.fetchedResultsController.sections {
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,6 +71,9 @@ extension HomeViewController: UITableViewDataSource {
     }
 
     func configureCell(cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
+        if let cell = self.postTableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier) as? PostTableViewCell {
+            let currentPost = dataProvider.fetchedResultsController.object(at: indexPath)
+            cell.viewModel = PostTableViewCellViewModel(post: currentPost)
+        }
     }
 }

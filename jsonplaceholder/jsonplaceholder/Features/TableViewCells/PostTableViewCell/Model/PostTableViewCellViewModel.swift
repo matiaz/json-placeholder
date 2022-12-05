@@ -9,10 +9,10 @@ import Foundation
 
 class PostTableViewCellViewModel: NSObject {
 
-    var currentPost: SMPost?
+    var currentPost: CMPost?
 
     // custom init in case we need it
-    init(post: SMPost) {
+    init(post: CMPost) {
         super.init()
         currentPost = post
     }
