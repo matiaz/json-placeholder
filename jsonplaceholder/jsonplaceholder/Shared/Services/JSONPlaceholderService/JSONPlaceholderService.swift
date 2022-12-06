@@ -33,6 +33,10 @@ class JSONPlaceholderService: NSObject {
 
     // persists the posts locally
     private func persistPost(posts: [SMPost]) async throws -> Result<Bool, DataBaseError> {
+        for post in posts {
+            CMPost.addAndUpdate(post: post)
+            CoreDataManager.shared.saveContext()
+        }
         return .success(true)
     }
 

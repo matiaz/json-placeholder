@@ -30,9 +30,9 @@ enum Endpoint {
     var url: String {
         switch self {
         case .getPosts:
-            return "\(BaseURL.production)posts"
+            return "\(BaseURL.production.url)posts"
         case .getComments:
-            return "\(BaseURL.production)comments?postId="
+            return "\(BaseURL.production.url)comments?postId="
         }
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 final class CoreDataManager: NSObject {
-    static var shared: CoreDataManager!
+    static var shared = CoreDataManager()
     private let model: String = "jsonplaceholder"
 
     // MARK: - Core Data stack

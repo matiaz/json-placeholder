@@ -55,15 +55,16 @@ extension HomeViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var numberOfRows = 0
         if let sections = dataProvider.fetchedResultsController.sections {
-            return sections[section].numberOfObjects
-        } else {
-            return 0
+            numberOfRows = sections[section].numberOfObjects
         }
+        noPostsAvailableLabel.isHidden = numberOfRows != 0
+        return numberOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath)
         configureCell(cell: cell, forRowAt: indexPath)
         return cell
     }

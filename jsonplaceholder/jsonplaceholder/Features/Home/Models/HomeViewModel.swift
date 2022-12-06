@@ -9,24 +9,31 @@ import Foundation
 
 class HomeViewModel: NSObject {
 
+    var service: JSONPlaceholderService!
+
     // custom init in case we need it
-    override init() { super.init() }
+    init(service: JSONPlaceholderService? = JSONPlaceholderService()) {
+        super.init()
+        self.service = service
+    }
 
     // updates the posts from the back end and stores them locally
     func updatePosts() async -> Bool {
-        return true
+        do {
+            let serviceResult = try await service.getPosts()
+            switch serviceResult {
+
+            case .success(_):
+                return true
+            case .failure(_):
+                return false
+            }
+        } catch {
+            return false
+        }
     }
 
-    // gets the total amount of posts
-    func getPostsCount() async -> Int {
-        return 0
-    }
-
-    // gets the list of posts stored locally
-    func getPosts() async -> Bool {
-        return true
-    }
-
+    // toggles the favorite property
     func set(post: CMPost, favorite: Bool, completion: @escaping (Bool) -> Void) {
         Task {
             let result = await CoreDataManager.shared.set(post: post, favorite: favorite)

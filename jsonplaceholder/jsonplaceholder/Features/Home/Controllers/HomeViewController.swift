@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     // user interface
     @IBOutlet weak var postTableView: UITableView!
     private var refreshControl: UIRefreshControl!
+    @IBOutlet weak var noPostsAvailableLabel: UILabel!
 
     // properties
     internal var viewModel: HomeViewModel?
@@ -27,34 +28,31 @@ class HomeViewController: UIViewController {
     }
 
     private func setup() {
-        // init the view model
-        viewModel = HomeViewModel()
-
-        // setup tableview
+        navigationItem.title = "Placeholder Posts".localized
         setupTableView()
-
-        // load data from local storage
-        loadData()
+        viewModel = HomeViewModel()
+        noPostsAvailableLabel.isHidden = true
+        postTableView.reloadData()
     }
 
     private func setupTableView() {
         postTableView.rowHeight = UITableView.automaticDimension
+        postTableView.register(PostTableViewCell.nib, forCellReuseIdentifier: PostTableViewCell.identifier)
         postTableView.estimatedRowHeight = 45
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh posts".localized)
         refreshControl.addTarget(self, action: #selector(updatePosts), for: .valueChanged)
         postTableView.addSubview(refreshControl)
+        postTableView.dataSource = self
+        postTableView.delegate = self
     }
 
     @objc private func updatePosts(_ sender: AnyObject) async {
-        if let success = await viewModel?.updatePosts(), success {
-
-        } else {
-
+        refreshControl.beginRefreshing()
+        if let _ = await viewModel?.updatePosts() {
+            postTableView.beginUpdates()
+            refreshControl.endRefreshing()
+            postTableView.endUpdates()
         }
-    }
-
-    private func loadData() {
-        
     }
 }
