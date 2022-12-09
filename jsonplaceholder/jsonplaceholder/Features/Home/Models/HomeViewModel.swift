@@ -22,7 +22,6 @@ class HomeViewModel: NSObject {
         do {
             let serviceResult = try await service.getPosts()
             switch serviceResult {
-
             case .success(_):
                 return true
             case .failure(_):
@@ -37,7 +36,7 @@ class HomeViewModel: NSObject {
     func set(post: CMPost, favorite: Bool, completion: @escaping (Bool) -> Void) {
         Task {
             let result = await CoreDataManager.shared.set(post: post, favorite: favorite)
-            completion(result)
+            DispatchQueue.main.async { completion(result) }
         }
     }
 
@@ -48,6 +47,9 @@ class HomeViewModel: NSObject {
 
     // deletes a post from the local storage
     func delete(post: CMPost, completion: @escaping (Bool) -> Void) {
-        completion(true)
+        Task {
+            let result = await CoreDataManager.shared.deletePost(post: post)
+            DispatchQueue.main.async { completion(result) }
+        }
     }
 }

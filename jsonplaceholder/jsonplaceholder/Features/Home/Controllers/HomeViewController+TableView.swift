@@ -10,7 +10,10 @@ import UIKit
 extension HomeViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        let selectedPost = dataProvider.fetchedResultsController.sections?[indexPath.section].objects?[indexPath.row] as? CMPost
+        let postDetailsController = ControllerFactory.postDetails
+        postDetailsController.selectedPost = selectedPost
+        navigationController?.pushViewController(postDetailsController, animated: true)
     }
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -21,7 +24,10 @@ extension HomeViewController: UITableViewDelegate {
                 self?.viewModel?.set(post: currentPost, favorite: !currentPost.favorite, completion: { result in
                     // update the UI here
                     self?.postTableView.beginUpdates()
+                    let cell = tableView.cellForRow(at: indexPath) as! PostTableViewCell
+                    cell.toggleFavoriteIcon()
                     self?.postTableView.endUpdates()
+
                 })
             }
         }
@@ -64,15 +70,16 @@ extension HomeViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath)
-        configureCell(cell: cell, forRowAt: indexPath)
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as? PostTableViewCell {
+            return configuredCell(cell: cell, forRowAt: indexPath)
+        } else {
+            fatalError("Error on cellForWotAt - Home TableView")
+        }
     }
 
-    func configureCell(cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let cell = self.postTableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier) as? PostTableViewCell {
-            let currentPost = dataProvider.fetchedResultsController.object(at: indexPath)
-            cell.viewModel = PostTableViewCellViewModel(post: currentPost)
-        }
+    func configuredCell(cell: PostTableViewCell, forRowAt indexPath: IndexPath) -> PostTableViewCell {
+        let currentPost = dataProvider.fetchedResultsController.object(at: indexPath)
+        cell.configureCell(PostTableViewCellViewModel(post: currentPost))
+        return cell
     }
 }

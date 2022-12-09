@@ -18,7 +18,7 @@ class JSONPlaceholderService: NSObject {
             let newPosts = try decoder.decode([SMPost].self, from: data)
 
             // save the received data locally
-            let persistResponse = try await persistPost(posts: newPosts)
+            let persistResponse = await persistPost(posts: newPosts)
             switch persistResponse {
             case .success(let result):
                 return .success(result)
@@ -32,7 +32,7 @@ class JSONPlaceholderService: NSObject {
     }
 
     // persists the posts locally
-    private func persistPost(posts: [SMPost]) async throws -> Result<Bool, DataBaseError> {
+    private func persistPost(posts: [SMPost]) async -> Result<Bool, DataBaseError> {
         for post in posts {
             CMPost.addAndUpdate(post: post)
             CoreDataManager.shared.saveContext()
@@ -42,14 +42,14 @@ class JSONPlaceholderService: NSObject {
 
     // gets the comments from the endpoint and saves them locally calling the `persistComments` func
     func getCommentsFor(postId: String) async throws -> Result<Bool, ServiceError> {
-        if let url = URL(string: Endpoint.getComments.url) {
+        if let url = URL(string: Endpoint.getComments.url + postId) {
             // (data, response) since we are not doing anything with the response then _ for now
             let (data, _) = try await URLSession.shared.data(from: url)
             let decoder = JSONDecoder()
             let newComments = try decoder.decode([SMComment].self, from: data)
 
             // save the received data locally
-            let persistResponse = try await persistComments(comments: newComments)
+            let persistResponse = try await persistComments(comments: newComments, Int16(postId) ?? -1)
             switch persistResponse {
             case .success(let result):
                 return .success(result)
@@ -62,7 +62,11 @@ class JSONPlaceholderService: NSObject {
         }
     }
 
-    private func persistComments(comments: [SMComment]) async throws -> Result<Bool, DataBaseError> {
+    private func persistComments(comments: [SMComment], _ postId: Int16) async throws -> Result<Bool, DataBaseError> {
+        for comment in comments {
+            CMComment.addAndUpdate(comment, postId)
+            CoreDataManager.shared.saveContext()
+        }
         return .success(true)
     }
 }

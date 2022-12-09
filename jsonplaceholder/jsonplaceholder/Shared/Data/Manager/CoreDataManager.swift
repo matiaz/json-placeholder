@@ -26,7 +26,7 @@ final class CoreDataManager: NSObject {
     }()
 
     // MARK: - Core Data Saving support
-    func saveContext () {
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -70,5 +70,24 @@ final class CoreDataManager: NSObject {
         post.favorite = favorite
         saveContext()
         return true
+    }
+
+    func deletePost(post: CMPost) async -> Bool {
+        let postFetch: NSFetchRequest<CMPost> = CMPost.fetchRequest()
+        let commentsFetch: NSFetchRequest<CMComment> = CMComment.fetchRequest()
+        let postPredicate = NSPredicate(format: "%K == %i", argumentArray: [#keyPath(CMPost.postId), post.postId])
+        let commentsPredicate = NSPredicate(format: "%K == %i", argumentArray: [#keyPath(CMComment.postId), post.postId])
+        postFetch.predicate = postPredicate
+        commentsFetch.predicate = commentsPredicate
+        do {
+            let post = try managedContext.fetch(postFetch)
+            let comments = try managedContext.fetch(commentsFetch)
+            comments.forEach({ self.managedContext.delete($0) })
+            post.forEach({ self.managedContext.delete($0) })
+            saveContext()
+            return true
+        } catch {
+            return false
+        }
     }
 }

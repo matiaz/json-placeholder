@@ -7,14 +7,29 @@
 
 import UIKit
 
-class PostDetailsTableViewCell: UITableViewCell {
+class PostDetailsTableViewCell: BaseTableViewCell {
+
+    // user interface
+    @IBOutlet weak var postCommentLabel: UILabel!
+
+    // properties
+    var viewModel: PostDetailsTableViewCellViewModel?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setup()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+
+    private func setup() {
+        selectionStyle = .none
+    }
+
+    func configureCell(_ viewModel: PostDetailsTableViewCellViewModel) {
+        self.viewModel = viewModel
+        postCommentLabel.text = viewModel.currentComment?.body
     }
 }

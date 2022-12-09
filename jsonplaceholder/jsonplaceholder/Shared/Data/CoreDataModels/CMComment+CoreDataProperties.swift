@@ -26,5 +26,32 @@ extension CMComment {
 }
 
 extension CMComment : Identifiable {
+    internal class func addAndUpdate(_ comment: SMComment, _ postId: Int16) {
+        let commentId = comment.id ?? -1
+        var currentComments: CMComment?
+        let commentFetch: NSFetchRequest<CMComment> = CMComment.fetchRequest()
 
+        let predicate = NSPredicate(format: "%K == %i", #keyPath(CMComment.commentId), commentId)
+        commentFetch.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
+
+        do {
+            let results = try CoreDataManager.shared.managedContext.fetch(commentFetch)
+            if results.isEmpty {
+                currentComments = CMComment(context: CoreDataManager.shared.managedContext)
+                currentComments?.commentId = Int16(commentId)
+            } else {
+                currentComments = results.first
+            }
+            currentComments?.postId = postId
+            currentComments?.update(comment)
+        } catch let error as NSError {
+            print("Fetch error: \(error) description: \(error.userInfo)")
+        }
+    }
+
+    internal func update(_ item: SMComment) {
+        body = item.body
+        email = item.email
+        name = item.name
+    }
 }

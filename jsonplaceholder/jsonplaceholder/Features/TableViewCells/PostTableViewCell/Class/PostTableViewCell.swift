@@ -7,10 +7,7 @@
 
 import UIKit
 
-class PostTableViewCell: UITableViewCell {
-
-    static var identifier: String { return String(describing: self) }
-    static var nib: UINib { return UINib(nibName: String(describing: self), bundle: nil) }
+class PostTableViewCell: BaseTableViewCell {
 
     // user interface
     @IBOutlet weak var postTitleLabel: UILabel!
@@ -31,7 +28,16 @@ class PostTableViewCell: UITableViewCell {
 
     private func setup() {
         accessoryType = .disclosureIndicator
-        postTitleLabel.text = viewModel?.currentPost?.title
+        selectionStyle = .none
         postFavoriteImageView.isHidden = true
+    }
+
+    func configureCell(_ viewModel: PostTableViewCellViewModel) {
+        self.viewModel = viewModel
+        postTitleLabel.text = viewModel.currentPost?.title   
+    }
+
+    func toggleFavoriteIcon() {
+        postFavoriteImageView.isHidden.toggle()
     }
 }

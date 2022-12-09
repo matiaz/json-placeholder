@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     // user interface
     @IBOutlet weak var postTableView: UITableView!
@@ -47,12 +47,16 @@ class HomeViewController: UIViewController {
         postTableView.delegate = self
     }
 
-    @objc private func updatePosts(_ sender: AnyObject) async {
+    private func updatePostsAction() async {
         refreshControl.beginRefreshing()
         if let _ = await viewModel?.updatePosts() {
-            postTableView.beginUpdates()
             refreshControl.endRefreshing()
-            postTableView.endUpdates()
+        }
+    }
+
+    @objc private func updatePosts(_ sender: AnyObject) {
+        Task {
+            await updatePostsAction()
         }
     }
 }
