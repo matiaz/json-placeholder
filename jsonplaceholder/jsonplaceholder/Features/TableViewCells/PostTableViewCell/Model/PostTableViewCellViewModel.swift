@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+class PostTableViewCellViewModel: NSObject {
+
+    var currentPost: CMPost?
+
+    // custom init in case we need it
+    init(post: CMPost) {
+        super.init()
+        currentPost = post
+    }
+}
