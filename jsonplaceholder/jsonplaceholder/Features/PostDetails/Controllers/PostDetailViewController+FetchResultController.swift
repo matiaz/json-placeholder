@@ -28,14 +28,15 @@ extension PostDetailsViewController: NSFetchedResultsControllerDelegate {
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                     didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        let commentsIndexPath = IndexPath(row: indexPath != nil ? indexPath!.row : newIndexPath!.row, section: 2)
         switch type {
         case .insert:
-            commentsTableView.insertRows(at: [newIndexPath!], with: .none)
+            commentsTableView.insertRows(at: [commentsIndexPath], with: .none)
         case .delete:
-            commentsTableView.deleteRows(at: [indexPath!], with: .none)
+            commentsTableView.deleteRows(at: [commentsIndexPath], with: .none)
         case .move:
-            commentsTableView.deleteRows(at: [indexPath!], with: .none)
-            commentsTableView.insertRows(at: [newIndexPath!], with: .none)
+            commentsTableView.deleteRows(at: [commentsIndexPath], with: .none)
+            commentsTableView.insertRows(at: [commentsIndexPath], with: .none)
         case .update:
             guard let cell = commentsTableView.dequeueReusableCell(withIdentifier: PostDetailsTableViewCell.identifier,
                                                            for: indexPath!) as? PostDetailsTableViewCell else { fatalError("xib doesn't exist") }

@@ -11,10 +11,10 @@ class PostDetailsViewController: BaseViewController {
 
     // user interface
     @IBOutlet weak var commentsTableView: UITableView!
-    @IBOutlet weak var noCommentsAvailableLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     // properties
+    internal var context: PostDetailContext = .default
     internal var viewModel: PostDetailsViewModel!
     lazy var dataProvider: CommentDataProvider = {
         let managedContext = CoreDataManager.shared.managedContext
@@ -31,14 +31,12 @@ class PostDetailsViewController: BaseViewController {
 
     private func setup() {
         viewModel = PostDetailsViewModel()
-        navigationItem.title = "Comments".localized
+        navigationItem.title = "Post Information".localized
         setupTableView()
         activityIndicator.hidesWhenStopped = true
-        noCommentsAvailableLabel.isHidden = true
-        noCommentsAvailableLabel.text = "No comments available".localized
         Task { [weak self] in
             self?.activityIndicator.startAnimating()
-            let _ = await viewModel.getCommentsForPost("\(selectedPost?.postId ?? -1)")
+            let _ = await viewModel.getCommentsForPost(selectedPost?.postId ?? -1)
             self?.activityIndicator.stopAnimating()
         }
     }
