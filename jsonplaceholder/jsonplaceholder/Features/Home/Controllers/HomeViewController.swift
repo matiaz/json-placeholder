@@ -29,6 +29,7 @@ class HomeViewController: BaseViewController {
 
     private func setup() {
         navigationItem.title = "Placeholder Posts".localized
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deletePosts))
         setupTableView()
         viewModel = HomeViewModel()
         noPostsAvailableLabel.isHidden = true
@@ -54,9 +55,35 @@ class HomeViewController: BaseViewController {
         }
     }
 
+    private func presentDeletePostsAlert() {
+        let alertMessage = "Delete all the posts except the favourites?".localized
+        let alertController = UIAlertController(title: nil, message: alertMessage, preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes".localized, style: .destructive) { [weak self] _ in
+            self?.viewModel?.deletePosts(completion: { _ in
+                self?.presentDeletePostsFinishAlert()
+            })
+        }
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel)
+        alertController.addAction(yesAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
+    private func presentDeletePostsFinishAlert() {
+        let alertMessage = "All posts have been deleted sucessfully".localized
+        let alertController = UIAlertController(title: nil, message: alertMessage, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok".localized, style: .default)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
     @objc private func updatePosts(_ sender: AnyObject) {
         Task {
             await updatePostsAction()
         }
+    }
+
+    @objc private func deletePosts(_ sender: AnyObject) {
+        presentDeletePostsAlert()
     }
 }

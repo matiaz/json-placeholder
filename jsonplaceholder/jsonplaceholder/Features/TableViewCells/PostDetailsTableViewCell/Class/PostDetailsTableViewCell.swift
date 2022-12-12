@@ -10,7 +10,7 @@ import UIKit
 class PostDetailsTableViewCell: BaseTableViewCell {
 
     // user interface
-    @IBOutlet weak var postCommentLabel: UILabel!
+    @IBOutlet weak var postDetailLabel: UILabel!
 
     // properties
     var viewModel: PostDetailsTableViewCellViewModel?
@@ -30,6 +30,15 @@ class PostDetailsTableViewCell: BaseTableViewCell {
 
     func configureCell(_ viewModel: PostDetailsTableViewCellViewModel) {
         self.viewModel = viewModel
-        postCommentLabel.text = viewModel.currentComment?.body
+        switch viewModel.currentRow {
+        case .authorId:
+            postDetailLabel.text = "Author Id: ".localized + "\(viewModel.currentPost?.userId ?? -1)"
+        case .postTitle:
+            postDetailLabel.text = "Title: ".localized + (viewModel.currentPost?.title ?? "")
+        case .postBody:
+            postDetailLabel.text = "Body: ".localized + (viewModel.currentPost?.body ?? "")
+        default:
+            postDetailLabel.text = viewModel.currentComment?.body
+        }
     }
 }

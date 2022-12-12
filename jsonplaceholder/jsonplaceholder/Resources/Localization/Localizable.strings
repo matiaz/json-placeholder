@@ -18,3 +18,11 @@
 "Placeholder Posts" = "Placeholder Posts";
 "Comments" = "Comments";
 "No comments available" = "No comments available";
+"Post Information" = "Post Information";
+"Post Details" = "Post Details";
+"Author Details" = "Author Details";
+"Author Id: " = "Author Id: ";
+"Title: " = "Title: ";
+"Body: " = "Body: ";
+"Delete all the posts except the favourites?" = "Delete all the posts except the favourites?";
+"All posts have been deleted successfully" = "All posts have been deleted successfully";

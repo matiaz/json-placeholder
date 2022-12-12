@@ -52,4 +52,12 @@ class HomeViewModel: NSObject {
             DispatchQueue.main.async { completion(result) }
         }
     }
+
+    // deletes all posts except favorites
+    func deletePosts(completion: @escaping (Bool) -> Void) {
+        Task {
+            let result = await CoreDataManager.shared.deletePosts()
+            DispatchQueue.main.async { completion(result) }
+        }
+    }
 }

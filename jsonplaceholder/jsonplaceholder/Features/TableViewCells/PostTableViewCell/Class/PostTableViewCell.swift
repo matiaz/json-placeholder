@@ -34,7 +34,8 @@ class PostTableViewCell: BaseTableViewCell {
 
     func configureCell(_ viewModel: PostTableViewCellViewModel) {
         self.viewModel = viewModel
-        postTitleLabel.text = viewModel.currentPost?.title   
+        postTitleLabel.text = viewModel.currentPost?.title
+        postFavoriteImageView.isHidden = !(viewModel.currentPost?.favorite ?? false)
     }
 
     func toggleFavoriteIcon() {

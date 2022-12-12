@@ -52,10 +52,11 @@ final class CoreDataManager: NSObject {
         }
     }
 
-    func getComments() async -> [CMComment] {
+    func getComments(_ postId: Int16) async -> [CMComment] {
         let commentsFetch: NSFetchRequest<CMComment> = CMComment.fetchRequest()
         let sortId = NSSortDescriptor(key: #keyPath(CMComment.postId), ascending: true)
         commentsFetch.sortDescriptors = [sortId]
+        commentsFetch.predicate = NSPredicate(format: "%K == %i", argumentArray: [#keyPath(CMComment.postId), postId])
         do {
             let managedContext = self.managedContext
             let results = try managedContext.fetch(commentsFetch)
@@ -89,5 +90,28 @@ final class CoreDataManager: NSObject {
         } catch {
             return false
         }
+    }
+
+    func deletePosts() async -> Bool {
+        let postFetch: NSFetchRequest<CMPost> = CMPost.fetchRequest()
+        let postPredicate = NSPredicate(format: "%K == 0", argumentArray: [#keyPath(CMPost.favorite)])
+        let commentsFetch: NSFetchRequest<CMComment> = CMComment.fetchRequest()
+        var commentsPredicate: NSPredicate = NSPredicate()
+        postFetch.predicate = postPredicate
+        do {
+            let posts = try managedContext.fetch(postFetch)
+            try posts.forEach { post in
+                commentsPredicate = NSPredicate(format: "%K == %i", argumentArray: [#keyPath(CMComment.postId), post.postId])
+                commentsFetch.predicate = commentsPredicate
+                let comments = try managedContext.fetch(commentsFetch)
+                comments.forEach({ self.managedContext.delete($0) })
+                self.managedContext.delete(post)
+                saveContext()
+            }
+            return true
+        } catch {
+            return false
+        }
+        
     }
 }

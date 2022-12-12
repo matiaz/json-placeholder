@@ -33,9 +33,12 @@ class JSONPlaceholderService: NSObject {
 
     // persists the posts locally
     private func persistPost(posts: [SMPost]) async -> Result<Bool, DataBaseError> {
-        for post in posts {
-            CMPost.addAndUpdate(post: post)
-            CoreDataManager.shared.saveContext()
+        // return to main queue after data download
+        DispatchQueue.global(qos: .utility).async {
+            for post in posts {
+                CMPost.addAndUpdate(post: post)
+                CoreDataManager.shared.saveContext()
+            }
         }
         return .success(true)
     }
@@ -63,9 +66,12 @@ class JSONPlaceholderService: NSObject {
     }
 
     private func persistComments(comments: [SMComment], _ postId: Int16) async throws -> Result<Bool, DataBaseError> {
-        for comment in comments {
-            CMComment.addAndUpdate(comment, postId)
-            CoreDataManager.shared.saveContext()
+        // return to main queue after data download
+        DispatchQueue.global(qos: .utility).async {
+            for comment in comments {
+                CMComment.addAndUpdate(comment, postId)
+                CoreDataManager.shared.saveContext()
+            }
         }
         return .success(true)
     }
